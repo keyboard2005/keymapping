@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+
+body,
+html,
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+#app {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+
+    .tools {
+        width: 100%;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        overflow: hidden;
+
+        button {
+            width: 100%;
+            height: 50px;
+            border-radius: 0px;
+
+            &:hover{
+                border: 1px solid #7c7c7c;
+            }
+
+            &.btn-disabled {
+                background-color: rgb(169, 219, 169);
+                color: #000;
+                cursor: not-allowed;
+            }
+
+            &.btn-primary {
+                background-color: #eee;
+                color: #000;
+            }            
+        }
+    }
+
+    .keyboard {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        .keyboard-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 5px;
+
+
+            .keyboard-row {
+                display: grid;
+                grid-template-columns: repeat(16, 1fr);
+                gap: 5px;
+
+
+                .active {
+                    transform: translate3d(0, 5px, 0);
+                    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+                }
+
+                .Backspace {
+                    grid-column: span 3;
+
+                }
+
+                .Tab {
+                    grid-column: span 2;
+                }
+
+                .lslash {
+                    grid-column: span 2;
+                }
+
+                .CapsLock {
+                    grid-column: span 2;
+                }
+
+                .Enter {
+                    grid-column: span 3;
+                }
+
+                .L-Shift,
+                .R-Shift {
+                    grid-column: span 3;
+                }
+
+
+                .Space {
+                    grid-column: span 9;
+                }
+
+
+            }
+        }
+
+        .keyboard-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 5px;
+
+            .keyboard-row {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 5px;
+
+            }
+        }
+
+        .keyboard-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 5px;
+
+            .keyboard-row {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+        }
+
+
+        .critem {
+            width: 60px;
+            height: 60px;
+        }
+
+        .keyboard-row-item {
+            background-color: #fff;
+            grid-column: span 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            color: #000;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.1s;
+            min-width: 60px;
+            min-height: 60px;
+            text-align: center;
+            position: relative;
+
+            // 阴影
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+
+            &:active {
+                transform: translate3d(0, 2px, 0);
+                box-shadow: 0 0 0px rgba(0, 0, 0, 0.0);
+            }
+
+            .map-key{
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: red;
+            }
+        }
+
+        // 低于1500px
+        @media (max-width: 1500px) {
+            .critem {
+                width: 50px;
+                height: 50px;
+            }
+
+            .keyboard-row-item {
+                min-width: 50px;
+                min-height: 50px;
+            }
+        }
+
+
+        .null {
+            opacity: 0;
+            // 鼠标不可点击
+            pointer-events: none;
+        }
+
+        .plac {
+            // opacity: 0;
+            color: #eee !important;
+            background-color: #eee;
+            // 鼠标不可点击
+            pointer-events: none;
+        }
+
+    }
+}
+
+
+
+button {
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    background-color: #fff;
+    // transition: all 0.1s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+
+input {
+    width: 100px;
+    font-size: 20px;
+    padding: 0 5px;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    color: #fff;
+}
+
+
+.key-set-box{
+    position: absolute;
+    z-index: 99999;
+    // width: 150px;
+    height: 40px;
+    background-color: #fff;
+    // 阴影
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  5px;
+    gap: 5px;
+    span{
+        // 不可换行
+        white-space: nowrap;
+    }
+    input{
+        color: #000;
+    }
+}
