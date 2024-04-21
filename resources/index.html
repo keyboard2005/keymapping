@@ -7,10 +7,22 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/neutralino.js"></script>
   <script src="./js/vue.global.js"></script>
+  <style>
+    .bytips {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 9999;
+      border-bottom: 1px solid #000;
+      padding: 0 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
+    <p class="bytips" @click="openLink">by bili CodeJack</p>
     <!-- 操作栏 -->
     <div class="tools" @click="closeSetBox">
       <button @click="startKeyMapping" :class="isMaping ? 'btn-disabled' : 'btn-primary'">开始键盘映射</button>
@@ -124,6 +136,9 @@
         };
       },
       methods: {
+        openLink() {
+          Neutralino.os.open("https://space.bilibili.com/3546656381340250")
+        },
         async clearAllMaping() {
           this.keyMapingJson = {};
           this.setKeyboardMapKey();

@@ -21,7 +21,7 @@
   ],
   "modes": {
     "window": {
-      "title": "KeyMapping by codejack",
+      "title": "KeyMapping by  bili codejack",
       "width": 1550,
       "height": 540,
       "center": true,
@@ -31,7 +31,7 @@
       "enableInspector": false,
       "borderless": false,
       "maximize": false,
-      "hidden": true,
+      "hidden": false,
       "resizable": true,
       "exitProcessOnClose": false,
       "nativeAllowList": [

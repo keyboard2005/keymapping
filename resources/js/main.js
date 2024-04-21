@@ -7,11 +7,5 @@ function onWindowClose() {
 
 Neutralino.init();
 
-Neutralino.events.on("ready", () => {
-    console.log("Neutralino is ready!");
-    // 显示窗口
-    Neutralino.window.show();
-})
-
 Neutralino.events.on("windowClose", onWindowClose);
 
